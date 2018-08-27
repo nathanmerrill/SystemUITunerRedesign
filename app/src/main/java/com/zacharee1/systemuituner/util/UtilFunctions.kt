@@ -121,6 +121,7 @@ fun Activity.startUp() {
 
 fun Context.getInstalledApps() =
         packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
+                .toMutableList().sortBy { it.name.toLowercase() }
 
 fun Context.isInDarkMode() =
         PreferenceManager.getDefaultSharedPreferences(this)
